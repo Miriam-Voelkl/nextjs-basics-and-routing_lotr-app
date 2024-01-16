@@ -12,6 +12,7 @@ export default function Volumes() {
           </li>
         ))}
       </ul>
+      <button type="button">Go to a random volume</button>
     </>
   );
 }
