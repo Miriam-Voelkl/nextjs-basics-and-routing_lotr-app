@@ -6,7 +6,6 @@ export default function Fellowship() {
     ({ slug }) => slug === "the-fellowship-of-the-ring"
   );
   const theFellowshipBooks = theFellowshipInfos.books;
-  console.log("Books", theFellowshipBooks);
 
   return (
     <>
