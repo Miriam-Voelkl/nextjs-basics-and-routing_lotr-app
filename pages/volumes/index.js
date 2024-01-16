@@ -1,13 +1,10 @@
 import Link from "next/link";
-import { introduction } from "@/resources/lib/data";
 import { volumes } from "@/resources/lib/data";
 
-export default function HomePage() {
+export default function Volumes() {
   return (
     <>
-      <h1>The Lord of the Rings</h1>
-      <p>{introduction}</p>
-      <h2>All Volumes</h2>
+      <h1>The Lord of the Rings has three volumes:</h1>
       <ul>
         {volumes.map((volume) => (
           <li key={volume.index}>
