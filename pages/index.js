@@ -9,9 +9,9 @@ export default function HomePage() {
       <p>{introduction}</p>
       <h2>All Volumes</h2>
       <ul>
-        {volumes.map((volume) => (
-          <li key={volume.index}>
-            <Link href={`/volumes/${volume.slug}`}>{volume.title}</Link>
+        {volumes.map(({ slug, title }) => (
+          <li key={slug}>
+            <Link href={`/volumes/${slug}`}>{title}</Link>
           </li>
         ))}
       </ul>

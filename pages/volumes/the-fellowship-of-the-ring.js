@@ -14,9 +14,9 @@ export default function Fellowship() {
       <h1>{theFellowshipInfos.title}</h1>
       <p>{theFellowshipInfos.description}</p>
       <ul>
-        {theFellowshipBooks.map((theFellowshipBook) => (
-          <li key={theFellowshipBook.index}>
-            {theFellowshipBook.ordinal} {theFellowshipBook.title}
+        {theFellowshipBooks.map(({ ordinal, title }) => (
+          <li key={ordinal}>
+            {ordinal} - {title}
           </li>
         ))}
       </ul>
