@@ -20,8 +20,6 @@ export default function VolumeDetail() {
   const nextVolume = volumes[volumeIndex + 1];
   const previousVolume = volumes[volumeIndex - 1];
 
-  console.log("next volume", nextVolume);
-
   return (
     <>
       <Head>
@@ -43,7 +41,7 @@ export default function VolumeDetail() {
         width={140}
         alt={`book cover of ${title}`}
       />
-
+      <br />
       {previousVolume ? (
         <div>
           <Link href={`/volumes/${previousVolume.slug}`}>
@@ -58,32 +56,3 @@ export default function VolumeDetail() {
     </>
   );
 }
-
-/* export default function Fellowship() {
-  const theFellowshipInfos = volumes.find(
-    ({ slug }) => slug === "the-fellowship-of-the-ring"
-  );
-  const theFellowshipBooks = theFellowshipInfos.books;
-
-  return (
-    <>
-      <Link href="/">All Volumes</Link>
-      <h1>{theFellowshipInfos.title}</h1>
-      <p>{theFellowshipInfos.description}</p>
-      <ul>
-        {theFellowshipBooks.map(({ ordinal, title }) => (
-          <li key={ordinal}>
-            {ordinal} - {title}
-          </li>
-        ))}
-      </ul>
-      <Image
-        src={fellowshipCover}
-        height={230}
-        width={140}
-        alt="the bookcover of the fellowship of the ring"
-      />
-    </>
-  );
-}
-*/
