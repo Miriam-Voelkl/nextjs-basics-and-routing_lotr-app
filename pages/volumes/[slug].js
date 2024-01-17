@@ -36,7 +36,7 @@ export default function VolumeDetail() {
         ))}
       </ul>
       <Image
-        src={`/../../resources/${cover}`}
+        src={`/../public${cover}`}
         height={230}
         width={140}
         alt={`book cover of ${title}`}
