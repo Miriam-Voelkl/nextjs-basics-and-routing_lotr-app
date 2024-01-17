@@ -7,7 +7,9 @@ export default function HomePage() {
     <>
       <h1>The Lord of the Rings</h1>
       <p>{introduction}</p>
-      <h2>All Volumes</h2>
+      <h2>
+        <Link href="/volumes">All Volumes</Link>{" "}
+      </h2>
       <ul>
         {volumes.map(({ slug, title }) => (
           <li key={slug}>
