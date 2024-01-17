@@ -1,6 +1,15 @@
 import Link from "next/link";
 import { volumes } from "@/resources/lib/data";
 import { useRouter } from "next/router";
+import styled from "styled-components";
+
+const StyledButton = styled.button`
+  background-color: #9eaab6;
+  padding: 2px;
+  border: #777f89 solid 1px;
+  border-radius: 6px;
+  box-shadow: 1px 1px #4f555b;
+`;
 
 export default function Volumes() {
   const router = useRouter();
@@ -16,6 +25,7 @@ export default function Volumes() {
 
   return (
     <>
+      <Link href="/">Home</Link>
       <h1>Volumes of The Lord of the Rings</h1>
       <ul>
         {volumes.map(({ slug, title }) => (
@@ -24,9 +34,9 @@ export default function Volumes() {
           </li>
         ))}
       </ul>
-      <button type="button" onClick={handleRandomButton}>
+      <StyledButton type="button" onClick={handleRandomButton}>
         Go to a random volume
-      </button>
+      </StyledButton>
     </>
   );
 }
