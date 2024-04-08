@@ -1,7 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 import { Cormorant } from "next/font/google";
+import { Lora } from "next/font/google";
 
 const cormorant = Cormorant({ subsets: ["latin"] });
+const lora = Lora({ subsets: ["latin"], style: ["normal", "italic"] });
 
 export default createGlobalStyle`
   *,
@@ -11,9 +13,8 @@ export default createGlobalStyle`
   }
 
   body {
-    margin: 10% 5%;
-    font-family: ${cormorant.style.fontFamily};
-    background-color: #e9f0e1;
-    font-size: 1.2rem;
+    font-family: ${lora.style.fontFamily}, serif;
+    background-color: #ffffff;
+    color: #111111;
   }
 `;

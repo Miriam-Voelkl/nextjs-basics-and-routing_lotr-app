@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { volumes } from "@/resources/lib/data";
+import { volumes } from "@/lib/data";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
