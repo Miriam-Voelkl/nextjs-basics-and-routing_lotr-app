@@ -29,11 +29,10 @@ export default function VolumeDetail() {
       <Head>
         <title>{title}</title>
       </Head>
-      <StyledLink href="/">Home</StyledLink>
-      <StyledLink href="/volumes">
+      <StyledHeaderLink href="/volumes">
         <ChevronLeftIcon />
-        All Volumes
-      </StyledLink>
+        <span>All Volumes</span>
+      </StyledHeaderLink>
       <StyledHeadline>{title}</StyledHeadline>
       <p>{description}</p>
       <StyledBackground $backgroundColor={currentVolume.color}>
@@ -81,6 +80,16 @@ const StyledBackground = styled.div`
   width: 100vw;
 `;
 
+const StyledHeaderLink = styled(Link)`
+  text-decoration: none;
+  color: var(--color-earth);
+  margin: 0 auto;
+  padding: 16px 0;
+  display: flex;
+  gap: 4px;
+  text-align: center;
+`;
+
 const StyledHeadline = styled.h1`
   padding: 4px;
   font: var(--font-headline-1);
@@ -103,4 +112,5 @@ const StyledLink = styled(Link)`
 
 const StyledCaption = styled.p`
   font: var(--font-caption--italic);
+  margin: 0;
 `;
