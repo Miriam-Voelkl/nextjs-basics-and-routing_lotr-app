@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import { Cormorant } from "next/font/google";
 import { Lora } from "next/font/google";
 
-const cormorant = Cormorant({ subsets: ["latin"] });
 const lora = Lora({ subsets: ["latin"], style: ["normal", "italic"] });
 
 export default createGlobalStyle`

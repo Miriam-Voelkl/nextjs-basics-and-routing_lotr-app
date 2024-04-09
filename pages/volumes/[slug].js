@@ -4,6 +4,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import styled from "styled-components";
+import ChevronLeftIcon from "@/components/Icons/ChevronLeft";
+import ArrowRightIcon from "@/components/Icons/ArrowRight";
+import ArrowLeftIcon from "@/components/Icons/ArrowLeft";
 
 export default function VolumeDetail() {
   const router = useRouter();
@@ -27,14 +30,18 @@ export default function VolumeDetail() {
         <title>{title}</title>
       </Head>
       <StyledLink href="/">Home</StyledLink>
-      <StyledLink href="/volumes">All Volumes</StyledLink>
+      <StyledLink href="/volumes">
+        <ChevronLeftIcon />
+        All Volumes
+      </StyledLink>
       <StyledHeadline>{title}</StyledHeadline>
       <p>{description}</p>
       <StyledBackground $backgroundColor={currentVolume.color}>
         <StyledList>
           {books.map(({ ordinal, title }) => (
             <li key={ordinal}>
-              {ordinal} - {title}
+              <StyledCaption>{ordinal}</StyledCaption>
+              <p>{title}</p>
             </li>
           ))}
         </StyledList>
@@ -47,14 +54,16 @@ export default function VolumeDetail() {
       </StyledBackground>
       {previousVolume ? (
         <StyledLink href={`/volumes/${previousVolume.slug}`}>
-          ← Previous volume
+          <ArrowLeftIcon /> Previous volume
         </StyledLink>
       ) : null}
 
       {nextVolume ? (
         <StyledLink href={`/volumes/${nextVolume.slug}`}>
           {" "}
-          Next volume →
+          <StyledCaption>Next volume</StyledCaption>
+          <p>{nextVolume.title}</p>
+          <ArrowRightIcon />
         </StyledLink>
       ) : null}
     </>
@@ -74,6 +83,7 @@ const StyledBackground = styled.div`
 
 const StyledHeadline = styled.h1`
   padding: 4px;
+  font: var(--font-headline-1);
 `;
 
 const StyledList = styled.ul`
@@ -86,11 +96,11 @@ const StyledList = styled.ul`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  padding: 4px;
+  padding: 8px;
   margin: 2px;
   display: inline-block;
-  box-shadow: 2px 2px #62586b;
-  &:hover {
-    background-color: #b69eaa;
-  }
+`;
+
+const StyledCaption = styled.p`
+  font: var(--font-caption--italic);
 `;
