@@ -40,7 +40,7 @@ export default function VolumeDetail() {
           {books.map(({ ordinal, title }) => (
             <li key={ordinal}>
               <StyledCaption>{ordinal}</StyledCaption>
-              <p>{title}</p>
+              <StyledBook>{title}</StyledBook>
             </li>
           ))}
         </StyledList>
@@ -53,7 +53,9 @@ export default function VolumeDetail() {
       </StyledBackground>
       {previousVolume ? (
         <StyledLink href={`/volumes/${previousVolume.slug}`}>
-          <ArrowLeftIcon /> Previous volume
+          <ArrowLeftIcon />
+          <StyledCaption>Previous volume</StyledCaption>
+          <p>{nextVolume.title}</p>
         </StyledLink>
       ) : null}
 
@@ -69,30 +71,22 @@ export default function VolumeDetail() {
   );
 }
 
-const StyledBackground = styled.div`
-  background-color: ${({ $backgroundColor }) => $backgroundColor};
-  color: #ffffff;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 16px;
-  padding: 0.75rem;
-  width: 100vw;
-`;
+// background: linear-gradient(90deg, #282828, 90%, #282828cc);
 
 const StyledHeaderLink = styled(Link)`
   text-decoration: none;
   color: var(--color-earth);
   margin: 0 auto;
-  padding: 16px 0;
+  padding: 16px 0 0 0;
   display: flex;
   gap: 4px;
   text-align: center;
 `;
 
 const StyledHeadline = styled.h1`
-  padding: 4px;
+  padding: 16px 0;
   font: var(--font-headline-1);
+  margin: 0;
 `;
 
 const StyledList = styled.ul`
@@ -101,6 +95,12 @@ const StyledList = styled.ul`
   flex-direction: column;
   gap: 8px;
   padding: 4px;
+`;
+
+const StyledBook = styled.p`
+  font: var(--font-title);
+  margin: 0;
+  padding: 4px 0;
 `;
 
 const StyledLink = styled(Link)`
@@ -112,5 +112,22 @@ const StyledLink = styled(Link)`
 
 const StyledCaption = styled.p`
   font: var(--font-caption--italic);
-  margin: 0;
+  margin: 0 0;
+`;
+
+const StyledBackground = styled.div`
+  background-color: ${({ $backgroundColor }) => $backgroundColor};
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    90%,
+    var(--color-smoke)
+  );
+  color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px;
+  padding: 0.75rem;
+  width: 100vw;
 `;
