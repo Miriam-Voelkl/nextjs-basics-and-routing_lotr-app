@@ -33,8 +33,10 @@ export default function VolumeDetail() {
         <ChevronLeftIcon />
         <span>All Volumes</span>
       </StyledHeaderLink>
-      <StyledHeadline>{title}</StyledHeadline>
-      <p>{description}</p>
+      <StyledArticle>
+        <StyledHeadline>{title}</StyledHeadline>
+        <p>{description}</p>
+      </StyledArticle>
       <StyledBackground $backgroundColor={currentVolume.color}>
         <StyledList>
           {books.map(({ ordinal, title }) => (
@@ -44,7 +46,7 @@ export default function VolumeDetail() {
             </li>
           ))}
         </StyledList>
-        <Image
+        <StyledCoverImage
           src={`/../public${cover}`}
           height={230}
           width={140}
@@ -55,7 +57,7 @@ export default function VolumeDetail() {
         <StyledLink href={`/volumes/${previousVolume.slug}`}>
           <ArrowLeftIcon />
           <StyledCaption>Previous volume</StyledCaption>
-          <p>{nextVolume.title}</p>
+          <p>{previousVolume.title}</p>
         </StyledLink>
       ) : null}
 
@@ -83,8 +85,12 @@ const StyledHeaderLink = styled(Link)`
   text-align: center;
 `;
 
+const StyledArticle = styled.article`
+  padding: 0 25px 0 25px;
+`;
+
 const StyledHeadline = styled.h1`
-  padding: 16px 0;
+  padding: 16px 0 8px 0;
   font: var(--font-headline-1);
   margin: 0;
 `;
@@ -94,7 +100,7 @@ const StyledList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 4px;
+  padding: 25px;
 `;
 
 const StyledBook = styled.p`
@@ -105,6 +111,7 @@ const StyledBook = styled.p`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  color: var(--color-earth);
   padding: 8px;
   margin: 2px;
   display: inline-block;
@@ -115,19 +122,18 @@ const StyledCaption = styled.p`
   margin: 0 0;
 `;
 
+const StyledCoverImage = styled(Image)`
+  box-shadow: var(--box-shadow-book);
+  margin: 20px 25px;
+`;
+
 const StyledBackground = styled.div`
   background-color: ${({ $backgroundColor }) => $backgroundColor};
-  background-image: linear-gradient(
-    90deg,
-    transparent,
-    90%,
-    var(--color-smoke)
-  );
+  background-image: linear-gradient(100deg, transparent, 75%, #d4d1cc45);
   color: #ffffff;
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 16px;
-  padding: 0.75rem;
   width: 100vw;
 `;

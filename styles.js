@@ -47,6 +47,7 @@ export default createGlobalStyle`
   body {
     font-family: var(--font-family);
     background-color: var(--color-clouds);
+    color: var(--color-earth);
     margin: 0;
   }
 `;
