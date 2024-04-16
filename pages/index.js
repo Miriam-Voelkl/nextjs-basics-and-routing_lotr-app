@@ -12,9 +12,9 @@ export default function HomePage() {
       <StyledH2>All Volumes</StyledH2>
       <StyledList>
         {volumes.map(({ slug, title, cover }) => (
-          <li key={slug}>
+          <StyledLi key={slug}>
             <StyledLink href={`/volumes/${slug}`}>
-              <Image
+              <StyledCoverImage
                 src={`/../public${cover}`}
                 height={138}
                 width={84}
@@ -22,7 +22,7 @@ export default function HomePage() {
               />{" "}
               <p>{title}</p>
             </StyledLink>
-          </li>
+          </StyledLi>
         ))}
       </StyledList>
     </>
@@ -40,6 +40,7 @@ const StyledIntroduction = styled.p`
 
 const StyledH2 = styled.h2`
   font: var(--font-headline-2);
+  padding: 8px 0 16px 0;
 `;
 
 const StyledList = styled.ul`
@@ -48,7 +49,19 @@ const StyledList = styled.ul`
   justify-content: space-between;
 `;
 
+const StyledLi = styled.li`
+  width: 27%;
+`;
+
 const StyledLink = styled(Link)`
   text-decoration: none;
   font: var(--font-caption);
+  color: var(--color-earth);
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const StyledCoverImage = styled(Image)`
+  box-shadow: var(--box-shadow-book);
 `;

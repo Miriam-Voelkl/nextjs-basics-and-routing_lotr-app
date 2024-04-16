@@ -50,7 +50,7 @@ export default createGlobalStyle`
     font-family: var(--font-family);
     background-color: var(--color-clouds);
     color: var(--color-earth);
-    width: 85%;
+    width: 90%;
     max-width: 600px;
     margin: auto;
   }
