@@ -2,6 +2,7 @@ import Link from "next/link";
 import { introduction } from "@/lib/data";
 import { volumes } from "@/lib/data";
 import styled from "styled-components";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -9,13 +10,21 @@ export default function HomePage() {
       <StyledH1>The Lord of the Rings</StyledH1>
       <StyledIntroduction>{introduction}</StyledIntroduction>
       <StyledH2>All Volumes</StyledH2>
-      <ul>
-        {volumes.map(({ slug, title }) => (
+      <StyledList>
+        {volumes.map(({ slug, title, cover }) => (
           <li key={slug}>
-            <Link href={`/volumes/${slug}`}>{title}</Link>
+            <StyledLink href={`/volumes/${slug}`}>
+              <Image
+                src={`/../public${cover}`}
+                height={138}
+                width={84}
+                alt={`book cover of ${title}`}
+              />{" "}
+              <p>{title}</p>
+            </StyledLink>
           </li>
         ))}
-      </ul>
+      </StyledList>
     </>
   );
 }
@@ -31,4 +40,15 @@ const StyledIntroduction = styled.p`
 
 const StyledH2 = styled.h2`
   font: var(--font-headline-2);
+`;
+
+const StyledList = styled.ul`
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  font: var(--font-caption);
 `;
