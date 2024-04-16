@@ -53,27 +53,31 @@ export default function VolumeDetail() {
           alt={`book cover of ${title}`}
         />
       </StyledBackground>
-      {previousVolume ? (
-        <StyledLink href={`/volumes/${previousVolume.slug}`}>
-          <ArrowLeftIcon />
-          <StyledCaption>Previous volume</StyledCaption>
-          <p>{previousVolume.title}</p>
-        </StyledLink>
-      ) : null}
+      <VolumesWrapper>
+        {previousVolume ? (
+          <StyledLink href={`/volumes/${previousVolume.slug}`}>
+            <StyledIconSpan>
+              <ArrowLeftIcon />
+            </StyledIconSpan>
+            <StyledCaption>Previous Volume</StyledCaption>
+            <StyledParagraph>{previousVolume.title}</StyledParagraph>
+          </StyledLink>
+        ) : null}
 
-      {nextVolume ? (
-        <StyledLink href={`/volumes/${nextVolume.slug}`}>
-          {" "}
-          <StyledCaption>Next volume</StyledCaption>
-          <p>{nextVolume.title}</p>
-          <ArrowRightIcon />
-        </StyledLink>
-      ) : null}
+        {nextVolume ? (
+          <StyledLink href={`/volumes/${nextVolume.slug}`} $isNext>
+            {" "}
+            <StyledCaption>Next Volume</StyledCaption>
+            <StyledParagraph>{nextVolume.title}</StyledParagraph>
+            <StyledIconSpan $isNext>
+              <ArrowRightIcon />
+            </StyledIconSpan>
+          </StyledLink>
+        ) : null}
+      </VolumesWrapper>
     </>
   );
 }
-
-// background: linear-gradient(90deg, #282828, 90%, #282828cc);
 
 const StyledHeaderLink = styled(Link)`
   text-decoration: none;
@@ -114,17 +118,40 @@ const StyledLink = styled(Link)`
   color: var(--color-earth);
   padding: 8px;
   margin: 2px;
-  display: inline-block;
+  display: grid;
+  grid-template-columns: 1fr 7fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  text-align: ${({ $isNext }) => ($isNext ? "right" : "left")};
 `;
 
 const StyledCaption = styled.p`
   font: var(--font-caption--italic);
   margin: 0 0;
+  grid-row: 1;
+  grid-column: 2;
+`;
+
+const StyledParagraph = styled.p`
+  margin: 0;
+  font: var(--font-caption);
+  grid-row: 2;
+  grid-column: 2;
+`;
+
+const StyledIconSpan = styled.span`
+  grid-row: 1 / 3;
+  grid-column: ${({ $isNext }) => ($isNext ? 3 : 1)};
+  justify-self: center;
+  align-self: center;
 `;
 
 const StyledCoverImage = styled(Image)`
   box-shadow: var(--box-shadow-book);
   margin: 20px 25px;
+`;
+
+const VolumesWrapper = styled.div`
+  display: grid;
 `;
 
 const StyledBackground = styled.div`
