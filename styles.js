@@ -8,6 +8,7 @@ export default createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box;
+    margin: 0;
   }
 
   :root {
@@ -48,6 +49,8 @@ export default createGlobalStyle`
     font-family: var(--font-family);
     background-color: var(--color-clouds);
     color: var(--color-earth);
-    margin: 0;
+    width: 85%;
+    max-width: 600px;
+    margin: auto;
   }
 `;

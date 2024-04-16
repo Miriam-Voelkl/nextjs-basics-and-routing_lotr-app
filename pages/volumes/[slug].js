@@ -29,7 +29,7 @@ export default function VolumeDetail() {
       <Head>
         <title>{title}</title>
       </Head>
-      <StyledHeaderLink href="/volumes">
+      <StyledHeaderLink href="/">
         <ChevronLeftIcon />
         <span>All Volumes</span>
       </StyledHeaderLink>
