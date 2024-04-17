@@ -90,13 +90,15 @@ const StyledHeaderLink = styled(Link)`
 `;
 
 const StyledArticle = styled.article`
-  padding: 0 25px 0 25px;
+  width: 88%;
+  max-width: 600px;
+  margin: auto;
+  padding: 4px 0 16px 0;
 `;
 
 const StyledHeadline = styled.h1`
   padding: 16px 0 8px 0;
   font: var(--font-headline-1);
-  margin: 0;
 `;
 
 const StyledList = styled.ul`
@@ -109,7 +111,6 @@ const StyledList = styled.ul`
 
 const StyledBook = styled.p`
   font: var(--font-title);
-  margin: 0;
   padding: 4px 0;
 `;
 
@@ -162,5 +163,5 @@ const StyledBackground = styled.div`
   justify-content: space-around;
   align-items: center;
   gap: 16px;
-  width: 100vw;
+  width: 100%;
 `;

@@ -17,6 +17,7 @@ export default createGlobalStyle`
     --color-earth: #282828;
     --color-clouds: #f1f1f1;
     --color-smoke: #d4d1cd;
+    --color-forest: #346d34;
   
     /* Font styles */
     --font-family: ${lora.style.fontFamily}, serif;
@@ -50,8 +51,5 @@ export default createGlobalStyle`
     font-family: var(--font-family);
     background-color: var(--color-clouds);
     color: var(--color-earth);
-    width: 90%;
-    max-width: 600px;
-    margin: auto;
   }
 `;

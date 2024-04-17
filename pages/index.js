@@ -7,27 +7,35 @@ import Image from "next/image";
 export default function HomePage() {
   return (
     <>
-      <StyledH1>The Lord of the Rings</StyledH1>
-      <StyledIntroduction>{introduction}</StyledIntroduction>
-      <StyledH2>All Volumes</StyledH2>
-      <StyledList>
-        {volumes.map(({ slug, title, cover }) => (
-          <StyledLi key={slug}>
-            <StyledLink href={`/volumes/${slug}`}>
-              <StyledCoverImage
-                src={`/../public${cover}`}
-                height={138}
-                width={84}
-                alt={`book cover of ${title}`}
-              />{" "}
-              <p>{title}</p>
-            </StyledLink>
-          </StyledLi>
-        ))}
-      </StyledList>
+      <StyledWrapper>
+        <StyledH1>The Lord of the Rings</StyledH1>
+        <StyledIntroduction>{introduction}</StyledIntroduction>
+        <StyledH2>All Volumes</StyledH2>
+        <StyledList>
+          {volumes.map(({ slug, title, cover }) => (
+            <StyledLi key={slug}>
+              <StyledLink href={`/volumes/${slug}`}>
+                <StyledCoverImage
+                  src={`/../public${cover}`}
+                  height={138}
+                  width={84}
+                  alt={`book cover of ${title}`}
+                />{" "}
+                <StyledCaption>{title}</StyledCaption>
+              </StyledLink>
+            </StyledLi>
+          ))}
+        </StyledList>
+      </StyledWrapper>
     </>
   );
 }
+
+const StyledWrapper = styled.div`
+  width: 88%;
+  max-width: 600px;
+  margin: auto;
+`;
 
 const StyledH1 = styled.h1`
   font: var(--font-headline-1);
@@ -58,10 +66,14 @@ const StyledLink = styled(Link)`
   font: var(--font-caption);
   color: var(--color-earth);
   &:hover {
-    cursor: pointer;
+    color: var(--color-forest);
   }
 `;
 
 const StyledCoverImage = styled(Image)`
   box-shadow: var(--box-shadow-book);
+`;
+
+const StyledCaption = styled.p`
+  padding: 4px 0;
 `;
